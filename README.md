@@ -1,2 +1,2 @@
 # mini-program-train
-c++/sendemail by lcurl/
+c++/mini-program/collections
