@@ -1,12 +1,11 @@
 #include <iostream>
-#include "middle.h"
 #include <curl/curl.h>
 #include <string>
 #include <cstring>
 using namespace std;
 class curl{
 	public:
-		string smtpSever = "smtps://smtp.126.com:465",fromEmail="jun_pancq@126.com",userName = "jun_pancq@126.com",passWord="BDLHNQWGQONYJOPP",targetEmail="342264863@qq.com",emailTitle="test",content="test";
+		string smtpSever,fromEmail,userName,passWord,targetEmail,emailTitle,content;
 } BI;
 void sendemail(curl& BI)
 {
@@ -48,7 +47,6 @@ curl_easy_cleanup(curl);
 }
 }
 int  main(){
-	/*
 cout << "Please Intput Your SmtpSever" << endl;
 getline(cin,BI.smtpSever);
 
@@ -69,30 +67,9 @@ getline(cin,BI.emailTitle);
 
 cout << "Please Intput Your content" << endl;
 getline(cin,BI.content);
-	*/
-sendemail(BI);
-/*CURL *curl;
-CURLcode res;
-const char* cTargetEmail = BI.targetEmail.c_str();
-size_t length  =  BI.targetEmail.length();
 
-char charTargetEmail[length+1];
-strcpy(charTargetEmail,cTargetEmail);
-curl= curl_easy_init();
-if(curl)
-{
-curl_easy_setopt(curl,CURLOPT_URL,BI.smtpSever);
-curl_easy_setopt(curl,BI.smtpSever);
-struct curl_slist *recipients = NULL;
-recipients = curl_slist_append(recipients,charTargetEmail);
-curl_easy_setopt(curl,CURLOPT_MAIL_RCPT,recipients);
-curl_easy_setopt(curl,CURLOPT_READDATA,stdin);
-res = curl_easy_perform(curl);
-if(res!=CURLE_OK)
-  fprintf(stderr,"curl_easy_perform() failed:%s\n",curl_easy_strerror(res));
-curl_slist_free_all(recipients);
-curl_easy_cleanup(curl);
-*/
+sendemail(BI);
+
 return 0;
 //}
 }
